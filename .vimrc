@@ -10,7 +10,7 @@ Plug 'dzeban/vim-log-syntax'
 call plug#end()
 
 set encoding=utf-8
-set fileencodings=sjis,euc-jp,cp932,utf-8
+set fileencodings=utf-8,cp932
 set fileformats=unix
 set incsearch 			"Iincremental search
 set hlsearch 			"Highlighten search result
@@ -22,6 +22,7 @@ set smartindent
 set wildmode=list:longest 	"command-line completion
 set clipboard+=unnamed		"Using system clipboard
 
+filetype on
 syntax on
 colorscheme desert
 
@@ -55,8 +56,17 @@ let g:ctrlp_max_height = 20
 
 "Airline Theme
 let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#buffer_idx_mode = 1
 let g:airline_powerline_fonts = 1
 let g:airline_theme = 'badwolf'
 
 nmap <C-p> :bp<CR>
 nmap <C-n> :bn<CR>
+
+"Set filetype for logs files
+autocmd BufRead,BufNewFile *.log* setfiletype log
+autocmd BufRead,BufNewFile *.out* setfiletype log
+autocmd BufRead,BufNewFile *.INFO* setfiletype log
+autocmd BufRead,BufNewFile *.WARNING* setfiletype log
+autocmd BufRead,BufNewFile *.ERROR* setfiletype log
+autocmd BufRead,BufNewFile *.FATAL* setfiletype log
