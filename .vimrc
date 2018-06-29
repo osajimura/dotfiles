@@ -5,7 +5,7 @@ Plug 'scrooloose/nerdtree'
 Plug 'kien/ctrlp.vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'dzeban/vim-log-syntax'
+Plug 'osajimura/nulog'
 
 call plug#end()
 
@@ -62,11 +62,3 @@ let g:airline_theme = 'badwolf'
 
 nmap <C-p> :bp<CR>
 nmap <C-n> :bn<CR>
-
-"Set filetype for logs files
-autocmd BufRead,BufNewFile *.log* setfiletype log
-autocmd BufRead,BufNewFile *.out* setfiletype log
-autocmd BufRead,BufNewFile *.INFO* setfiletype log
-autocmd BufRead,BufNewFile *.WARNING* setfiletype log
-autocmd BufRead,BufNewFile *.ERROR* setfiletype log
-autocmd BufRead,BufNewFile *.FATAL* setfiletype log
