@@ -47,6 +47,7 @@ nmap <C-t>t :cs find t <C-R>=expand("<cword>")<CR><CR>
 
 nmap <C-l> :NERDTreeToggle<CR>
 let NERDTreeWinSize = 50
+let NERDTreeNodeDelimiter = "\t"
 
 "CtrlP settings
 
