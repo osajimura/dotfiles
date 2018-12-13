@@ -26,7 +26,7 @@ filetype on
 syntax on
 colorscheme desert
 
-"cscope related settings
+"cscope settings
 set nocst
 set nocsverb
 set csprg=/usr/bin/cscope
@@ -63,3 +63,6 @@ let g:airline_theme = 'badwolf'
 
 nmap <C-p> :bp<CR>
 nmap <C-n> :bn<CR>
+
+"Use quickfix-window after running vimgrep and cscope
+autocmd QuickFixCmdPost vimgrep cwindow
