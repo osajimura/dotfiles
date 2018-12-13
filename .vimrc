@@ -65,4 +65,4 @@ nmap <C-p> :bp<CR>
 nmap <C-n> :bn<CR>
 
 "Use quickfix-window after running vimgrep and cscope
-autocmd QuickFixCmdPost vimgrep cwindow
+autocmd QuickFixCmdPost *grep* cwindow
