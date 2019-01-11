@@ -29,9 +29,8 @@ colorscheme desert
 "cscope settings
 set nocst
 set nocsverb
+set csre
 set csprg=/usr/bin/cscope
-
-set cspc=6
 
 nmap <C-s> :scs find s <C-R>=expand("<cword>")<CR><CR>
 nmap <C-g><C-g> :scs find g <C-R>=expand("<cword>")<CR><CR>
