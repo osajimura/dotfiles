@@ -63,5 +63,5 @@ let g:airline_theme = 'badwolf'
 nmap <C-p> :bp<CR>
 nmap <C-n> :bn<CR>
 
-"Use quickfix-window after running vimgrep and cscope
+"Use quickfix-window after running vimgrep
 autocmd QuickFixCmdPost *grep* cwindow
