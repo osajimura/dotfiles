@@ -3,6 +3,7 @@ call plug#begin()
 Plug 'tpope/vim-fugitive'
 Plug 'scrooloose/nerdtree'
 Plug 'kien/ctrlp.vim'
+Plug 'morhetz/gruvbox'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'osajimura/nulog'
@@ -21,10 +22,11 @@ set autoread
 set smartindent
 set wildmode=list:longest 	"command-line completion
 set clipboard+=unnamed		"Using system clipboard
+set background=dark		"Setting dard mode for gruvbox color theme
 
 filetype on
 syntax on
-colorscheme desert
+colorscheme gruvbox
 
 "cscope settings
 set nocst
@@ -45,7 +47,7 @@ nmap <C-t>t :cs find t <C-R>=expand("<cword>")<CR><CR>
 "NERDTree key mappings
 
 nmap <C-l> :NERDTreeToggle<CR>
-let NERDTreeWinSize = 50
+let NERDTreeWinSize = 80
 let NERDTreeNodeDelimiter = "\t"
 
 "CtrlP settings
@@ -58,7 +60,7 @@ let g:ctrlp_max_height = 20
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#buffer_idx_mode = 1
 let g:airline_powerline_fonts = 1
-let g:airline_theme = 'badwolf'
+let g:airline_theme = 'gruvbox'
 
 nmap <C-p> :bp<CR>
 nmap <C-n> :bn<CR>
