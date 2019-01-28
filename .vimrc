@@ -29,10 +29,8 @@ syntax on
 colorscheme gruvbox
 
 "cscope settings
-set nocst
-set nocsverb
-set csre
-set csprg=/usr/bin/cscope
+set csre			"basename of cscope.out location will be used as the prefix to construct an absolute path.
+set csprg=/usr/bin/cscope	"cscope binary path
 
 nmap <C-s> :scs find s <C-R>=expand("<cword>")<CR><CR>
 nmap <C-g><C-g> :scs find g <C-R>=expand("<cword>")<CR><CR>
