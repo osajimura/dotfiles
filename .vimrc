@@ -6,7 +6,7 @@ Plug 'kien/ctrlp.vim'
 Plug 'morhetz/gruvbox'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'osajimura/nulog'
+Plug 'osajimura/nxlog'
 
 call plug#end()
 
@@ -64,4 +64,4 @@ nmap <C-p> :bp<CR>
 nmap <C-n> :bn<CR>
 
 "Use quickfix-window after running vimgrep
-autocmd QuickFixCmdPost *grep* cwindow
+autocmd QuickFixCmdPost *grep* cwindow 30
