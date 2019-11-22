@@ -1,13 +1,13 @@
 export PATH=/sbin:/bin:/usr/local/bin:/usr/bin:/usr/sbin
 export HISTTIMEFORMAT='%F %T '
 
+export LANG=ja_JP.UTF-8
 export PS1="`/bin/hostname`$ "
 export PAGER=less
-export LANG=C
-export LC_ALL=C
 export EDITOR=vi
 export TERM=screen-256color
 
-alias ls='ls -aF'
+alias ls='ls -aGF'
+alias nssh='ssh -lnutanix'
 stty stop undef
 stty start undef
