@@ -7,7 +7,7 @@ export PAGER=less
 export EDITOR=vi
 export TERM=screen-256color
 
-alias ls='ls -aGF'
+alias ls='ls -aG'
 alias nssh='ssh -lnutanix'
 stty stop undef
 stty start undef
