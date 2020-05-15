@@ -6,8 +6,11 @@ export PS1="`/bin/hostname`$ "
 export PAGER=less
 export EDITOR=vi
 export TERM=screen-256color
+export BAT_THEME="Nord"
 
 alias ls='ls -aG'
 alias nssh='ssh -lnutanix'
 stty stop undef
 stty start undef
+
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
