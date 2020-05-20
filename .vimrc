@@ -45,6 +45,7 @@ set csprg=/usr/local/bin/cscope	"cscope binary path
 nmap <C-l> :NERDTreeToggle<CR>
 let NERDTreeWinSize = 60
 let NERDTreeNodeDelimiter = "\t"
+let NERDTreeShowHidden = 1
 
 "Airline Theme
 let g:airline#extensions#tabline#enabled = 1
@@ -52,8 +53,16 @@ let g:airline#extensions#tabline#buffer_idx_mode = 1
 let g:airline_powerline_fonts = 1
 let g:airline_theme = 'gruvbox'
 
-"Use quickfix-window after running vimgrep
-autocmd QuickFixCmdPost *grep* cwindow 30
+" fzf default command
+let $FZF_DEFAULT_COMMAND='rg --files --hidden --follow'
+" fzf Rg command option
+" Change from default
+" 1. Added --follow, --hidden and binary option
+" 2. Excluded directories which aren't used for code search
+
+command! -bang -nargs=* Rg
+            \ call fzf#vim#grep('rg --column --follow --hidden --binary --line-number --no-heading --color=always --smart-case 
+            \'.shellescape(<q-args>), 1, fzf#vim#with_preview(), <bang>0)
 
 "Key mappings
 "cscope
@@ -72,9 +81,10 @@ nnoremap <C-n> :bn<CR>
 
 "fzf and ripgrep
 nnoremap <C-t> :Rg <C-R>=expand("<cword>")<CR><CR>
+nnoremap <C-q> :Rg<space>
 nnoremap f :Files <CR> 
 nnoremap b :Buffers <CR> 
-nnoremap <C-h> :History <CR> 
+nnoremap <C-h> :History: <CR> 
 
 " Temporary setting for testing
 " Use `[g` and `]g` to navigate diagnostics
