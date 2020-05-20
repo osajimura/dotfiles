@@ -1,0 +1,10 @@
+--glob=!experimental/
+--glob=!prism/experimental/
+--glob=!**/test/**
+--glob=!**/pytest/**
+--glob=!**/pytests/**
+--glob=!**/tests/**
+--glob=!**/testcase/**
+--glob=!**/testutil/**
+--glob=!**/test_fw/**
+--glob=!qa/*
