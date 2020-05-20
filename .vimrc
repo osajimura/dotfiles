@@ -61,7 +61,7 @@ let $FZF_DEFAULT_COMMAND='rg --files --hidden --follow'
 " 2. Excluded directories which aren't used for code search
 
 command! -bang -nargs=* Rg
-            \ call fzf#vim#grep('rg --column --follow --hidden --binary --line-number --no-heading --color=always --smart-case 
+            \ call fzf#vim#grep('rg --column --follow --hidden --search-zip --line-number --no-heading --color=always --smart-case 
             \'.shellescape(<q-args>), 1, fzf#vim#with_preview(), <bang>0)
 
 "Key mappings
