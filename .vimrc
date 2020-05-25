@@ -32,6 +32,9 @@ set autoindent
 set expandtab
 set shiftwidth=4
 
+set mouse=a
+set ttymouse=xterm2
+
 filetype on
 syntax on
 colorscheme gruvbox
