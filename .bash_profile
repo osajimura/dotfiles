@@ -9,6 +9,7 @@ else
     export PS1="\u@\h:\w$ "
 fi
 
+export LC_MESSAGES="C"
 export PAGER=less
 export EDITOR=vi
 export TERM=screen-256color
