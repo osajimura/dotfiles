@@ -32,6 +32,7 @@ set autoindent
 set expandtab
 set shiftwidth=4
 
+"Enable mouse on vim
 set mouse=a
 set ttymouse=xterm2
 
