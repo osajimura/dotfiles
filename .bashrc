@@ -6,7 +6,7 @@ export HISTTIMEFORMAT='%F %T '
 source ~/.git-prompt.sh
 
 if [ $NICKNAME ]; then
-    export PS1='\u@\[\e[1;91m\]$NICKNAME\[\e[0m\]:\[\e[94m\]\w$ '
+    export PS1='\u@\[\e[1;91m\]$NICKNAME\[\e[0m\]:\[\e[94m\]\w\[\e[0m\]$ '
 else
     export PS1='\[\e[39m\]\u@\h\[\e[00m\]\[\e[00m\]:\[\e[94m\]\w\[\e[00m\]\[\e[1;90m $(__git_ps1 "(%s)") \[\e[00m\]$ '
 fi
