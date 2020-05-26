@@ -3,12 +3,25 @@ export HISTTIMEFORMAT='%F %T '
 
 # show git branch
 # https://github.com/git/git/blob/master/contrib/completion/git-prompt.sh
-source ~/.git-prompt.sh
+
+if [ ~/.git-prompt.sh ]; then
+    source ~/.git-prompt.sh
+fi
+
+# prompt coloring
+# 1. Remote (Diamond): Highlight nickname and working directory
+# NICKNAME:             95m Light Magenta
+# Working directory:    94m Light Blue
+#
+# 2. Local: Highlight working directory and current branch 
+# User and hostname:    39m Default foreground color 
+# Working directory:    94m Light Blue
+# Current Branch:       90m Dark Gray
 
 if [ $NICKNAME ]; then
-    export PS1='\u@\[\e[1;91m\]$NICKNAME\[\e[0m\]:\[\e[94m\]\w\[\e[0m\]$ '
+    export PS1='\u@\[\e[95m\]$NICKNAME\[\e[0m\]:\[\e[94m\]\w\[\e[0m\]$ '
 else
-    export PS1='\[\e[39m\]\u@\h\[\e[00m\]\[\e[00m\]:\[\e[94m\]\w\[\e[00m\]\[\e[1;90m $(__git_ps1 "(%s)") \[\e[00m\]$ '
+    export PS1='\[\e[39m\]\u@\h\[\e[00m\]\[\e[00m\]:\[\e[94m\]\w\[\e[00m\]\[\e[1;90m $(__git_ps1 "(%s)")\[\e[00m\]$ '
 fi
 
 export LANG=ja_JP.UTF-8
