@@ -34,3 +34,7 @@ export RIPGREP_CONFIG_PATH=~/.ripgreprc
 
 alias ls='ls -aFG'
 alias nssh='ssh -lnutanix'
+
+# Disabling Ctrl + S and Ctrl + Q. See stty -a for defails.
+stty stop undef
+stty start undef

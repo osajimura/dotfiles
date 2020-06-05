@@ -36,6 +36,7 @@ set shiftwidth=4
 set mouse=a
 set ttymouse=xterm2
 
+
 filetype on
 syntax on
 colorscheme gruvbox
@@ -45,8 +46,7 @@ set csre			"basename of cscope.out location will be used as the prefix to constr
 set csprg=/usr/local/bin/cscope	"cscope binary path
 
 "NERDTree key mappings
-
-nmap <C-l> :NERDTreeToggle<CR>
+nnoremap <C-l> :NERDTreeToggle<CR>
 let NERDTreeWinSize = 60
 let NERDTreeNodeDelimiter = "\t"
 let NERDTreeShowHidden = 1
@@ -58,18 +58,17 @@ let g:airline_powerline_fonts = 1
 let g:airline_theme = 'gruvbox'
 
 " fzf default command
-let $FZF_DEFAULT_COMMAND='rg --files --hidden --follow'
+let $FZF_DEFAULT_COMMAND='rg --files --follow'
+
 " fzf Rg command option
 " Change from default
 " 1. Added --follow, --hidden and binary option
-" 2. Excluded directories which aren't used for code search
-
 command! -bang -nargs=* Rg
             \ call fzf#vim#grep('rg --column --follow --hidden --search-zip --line-number --no-heading --color=always --smart-case 
             \'.shellescape(<q-args>), 1, fzf#vim#with_preview(), <bang>0)
 
 "Key mappings
-"cscope
+"1. cscope
 nnoremap <C-s> :vert scs find s <C-R>=expand("<cword>")<CR><CR>
 nnoremap <C-c> :vert scs find c <C-R>=expand("<cword>")<CR><CR>
 "nnoremap <C-t> :vert scs find t <C-R>=expand("<cword>")<CR><CR>
@@ -79,24 +78,30 @@ nnoremap <C-g>g :cs find g <C-R>=expand("<cword>")<CR><CR>
 nnoremap <C-c>c :cs find c <C-R>=expand("<cword>")<CR><CR>
 nnoremap <C-t>t :cs find t <C-R>=expand("<cword>")<CR><CR>
 
-"buffer control
+"2. buffer control
 nnoremap <C-p> :bp<CR>
 nnoremap <C-n> :bn<CR>
 
-"fzf and ripgrep
+"3. fzf and ripgrep
 nnoremap <C-t> :Rg <C-R>=expand("<cword>")<CR><CR>
 nnoremap <C-q> :Rg<space>
 nnoremap f :Files <CR> 
 nnoremap b :Buffers <CR> 
 nnoremap <C-h> :History: <CR> 
 
-" Temporary setting for testing
-" Use `[g` and `]g` to navigate diagnostics
-nnoremap <silent> [g <Plug>(coc-diagnostic-prev)
-nnoremap <silent> ]g <Plug>(coc-diagnostic-next)
 
-" GoTo code navigation.
-nnoremap <silent> gd <Plug>(coc-definition)
-nnoremap <silent> gy <Plug>(coc-type-definition)
-nnoremap <silent> gi <Plug>(coc-implementation)
-nnoremap <silent> gr <Plug>(coc-references)
+" Use K to show documentation in preview window.
+nnoremap <silent> K :call <SID>show_documentation()<CR>
+
+function! s:show_documentation()
+   if (index(['vim','help'], &filetype) >= 0)
+       execute 'h '.expand('<cword>')
+   else
+       call CocAction('doHover')
+   endif
+endfunction
+
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
