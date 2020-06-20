@@ -64,8 +64,8 @@ let $FZF_DEFAULT_COMMAND='rg --files --follow'
 " Change from default
 " 1. Added --follow, --hidden and binary option
 command! -bang -nargs=* Rg
-            \ call fzf#vim#grep('rg --column --follow --hidden --search-zip --line-number --no-heading --color=always --smart-case 
-            \'.shellescape(<q-args>), 1, fzf#vim#with_preview(), <bang>0)
+            \ call fzf#vim#grep('rg --column --follow --search-zip --line-number --no-heading --color=always --smart-case ' 
+            \ . <q-args>, 1, fzf#vim#with_preview(), <bang>0)
 
 "Key mappings
 "1. cscope
@@ -86,7 +86,6 @@ nnoremap <C-n> :bn<CR>
 nnoremap <C-t> :Rg <C-R>=expand("<cword>")<CR><CR>
 nnoremap <C-q> :Rg<space>
 nnoremap f :Files <CR> 
-nnoremap b :Buffers <CR> 
 nnoremap <C-h> :History: <CR> 
 
 
