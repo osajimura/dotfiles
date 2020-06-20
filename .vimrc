@@ -63,7 +63,7 @@ let $FZF_DEFAULT_COMMAND='rg --files --follow'
 " fzf Rg command option
 " Change from default
 " 1. Added --follow, --hidden and binary option
-command! -bang -nargs=* Rg
+command! -bang -complete=file -nargs=* Rg
             \ call fzf#vim#grep('rg --column --follow --search-zip --line-number --no-heading --color=always --smart-case ' 
             \ . <q-args>, 1, fzf#vim#with_preview(), <bang>0)
 
