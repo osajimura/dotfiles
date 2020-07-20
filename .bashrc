@@ -1,4 +1,10 @@
-export PATH=~/local/bin:/sbin:/bin:/usr/local/bin:/usr/bin:/usr/sbin
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:~/local/bin:/usr/local/bin:/sbin:/bin:/usr/bin:/usr/sbin"
+
+if command -v pyenv 1>/dev/null 2>&1; then
+  eval "$(pyenv init -)"
+fi
+
 export HISTTIMEFORMAT='%F %T '
 
 # show git branch
@@ -31,10 +37,30 @@ export EDITOR=vi
 export TERM=screen-256color
 export BAT_THEME="Nord"
 export RIPGREP_CONFIG_PATH=~/.ripgreprc
-
 alias ls='ls -aFG'
 alias nssh='ssh -lnutanix'
 
 # Disabling Ctrl + S and Ctrl + Q. See stty -a for defails.
 stty stop undef
 stty start undef
+
+# gb - checkout git branch
+gb() {
+    local branches branch
+    branches=$(git branch) &&
+    branch=$(echo "$branches" | fzf-tmux +m) &&
+    git checkout $(echo "$branch" | awk '{print $1}')
+}
+
+# gbr - checkout git branch from remote branch
+gbr() {
+    local branches branch
+    branches=$(git branch -r) &&
+    branch=$(echo "$branches" | fzf +m) &&
+    git checkout -b $(echo "$branch" | awk '{print $1}' | cut -d "/" -f2) $(echo "$branch" | awk '{print $1}')
+}
+
+# key binding for gb
+bind '"\C-g": "gb \n"'
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash

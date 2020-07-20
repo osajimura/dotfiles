@@ -8,8 +8,10 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'osajimura/nxlog'
 Plug 'morhetz/gruvbox'
+Plug 't9md/vim-quickhl'
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'majutsushi/tagbar'
 
 call plug#end()
 
@@ -85,8 +87,8 @@ nnoremap <C-n> :bn<CR>
 "3. fzf and ripgrep
 nnoremap <C-t> :Rg <C-R>=expand("<cword>")<CR><CR>
 nnoremap <C-q> :Rg<space>
-nnoremap f :Files <CR> 
 nnoremap <C-h> :History: <CR> 
+nnoremap s :Files <CR> 
 
 
 " Use K to show documentation in preview window.
@@ -104,3 +106,9 @@ nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
+
+"keymaps for quickhl
+nmap <Space>m <Plug>(quickhl-manual-this)
+xmap <Space>m <Plug>(quickhl-manual-this)
+nmap <Space>M <Plug>(quickhl-manual-reset)
+xmap <Space>M <Plug>(quickhl-manual-reset)
