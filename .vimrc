@@ -59,6 +59,18 @@ let g:airline#extensions#tabline#buffer_idx_mode = 1
 let g:airline_powerline_fonts = 1
 let g:airline_theme = 'gruvbox'
 
+"Use ripgrep (rg) for grep.
+if executable('rg')
+    let &grepprg = 'rg --vimgrep --hidden'
+    set grepformat=%f:%l:%c:%m
+endif
+
+"Use quickfix window (size 30) for any grep commands output
+augroup AutoQuickfix
+    autocmd!
+    autocmd QuickFixCmdPost *grep* cwindow 30
+augroup END
+
 " fzf default command
 let $FZF_DEFAULT_COMMAND='rg --files --follow'
 
