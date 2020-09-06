@@ -64,3 +64,4 @@ gbr() {
 bind '"\C-g": "gb \n"'
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
+

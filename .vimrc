@@ -10,7 +10,12 @@ Plug 'osajimura/nxlog'
 Plug 'morhetz/gruvbox'
 Plug 't9md/vim-quickhl'
 
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'prabirshrestha/vim-lsp'
+Plug 'prabirshrestha/asyncomplete.vim'
+Plug 'prabirshrestha/asyncomplete-lsp.vim'
+Plug 'mattn/vim-lsp-settings'
+
+Plug 'AndrewRadev/quickpeek.vim'
 Plug 'majutsushi/tagbar'
 
 call plug#end()
@@ -81,6 +86,18 @@ command! -bang -complete=file -nargs=* Rg
             \ call fzf#vim#grep('rg --column --follow --search-zip --line-number --no-heading --color=always --smart-case ' 
             \ . <q-args>, 1, fzf#vim#with_preview(), <bang>0)
 
+"vim-lsp configuration
+let g:lsp_log_verbose = 1
+let g:lsp_log_file = expand('~/vim-lsp.log')
+let g:lsp_diagnostics_enabled = 0
+"let g:lsp_highlight_references_enabled = 1
+"highlight lspReference cterm = underline ctermfg = 109 ctermbg = 239
+
+"To turn preview popup on automatically (quickpeek.vim)
+let g:quickpeek_auto = v:true
+let g:quickpeek_popup_options = {'title': ' Preview '}
+let g:quickpeek_window_settings = ['cursorline', 'number']
+
 "Key mappings
 "1. cscope
 nnoremap <C-s> :vert scs find s <C-R>=expand("<cword>")<CR><CR>
@@ -102,22 +119,8 @@ nnoremap <C-q> :Rg<space>
 nnoremap <C-h> :History: <CR> 
 nnoremap s :Files <CR> 
 
-
-" Use K to show documentation in preview window.
-nnoremap <silent> K :call <SID>show_documentation()<CR>
-
-function! s:show_documentation()
-   if (index(['vim','help'], &filetype) >= 0)
-       execute 'h '.expand('<cword>')
-   else
-       call CocAction('doHover')
-   endif
-endfunction
-
-nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gy <Plug>(coc-type-definition)
-nmap <silent> gi <Plug>(coc-implementation)
-nmap <silent> gr <Plug>(coc-references)
+nnoremap <silent> gd :LspDefinition<CR>
+nnoremap <silent> gr :LspReferences<CR>
 
 "keymaps for quickhl
 nmap <Space>m <Plug>(quickhl-manual-this)
