@@ -33,6 +33,7 @@ set smartindent
 set wildmode=list:longest 	"command-line completion
 set clipboard+=unnamed		"Using system clipboard
 set background=dark		"Setting dard mode for gruvbox color theme
+set nohlsearch          "No highlight for search
 
 set tabstop=4
 set autoindent
@@ -87,16 +88,19 @@ command! -bang -complete=file -nargs=* Rg
             \ . <q-args>, 1, fzf#vim#with_preview(), <bang>0)
 
 "vim-lsp configuration
-let g:lsp_log_verbose = 1
+"let g:lsp_log_verbose = 1
 let g:lsp_log_file = expand('~/vim-lsp.log')
 let g:lsp_diagnostics_enabled = 0
-"let g:lsp_highlight_references_enabled = 1
-"highlight lspReference cterm = underline ctermfg = 109 ctermbg = 239
+let g:lsp_highlight_references_enabled = 1
+highlight lspReference cterm = underline ctermfg = 109 ctermbg = 239
 
 "To turn preview popup on automatically (quickpeek.vim)
 let g:quickpeek_auto = v:true
 let g:quickpeek_popup_options = {'title': ' Preview '}
 let g:quickpeek_window_settings = ['cursorline', 'number']
+
+"Tagbar window size
+let g:tagbar_width = 130
 
 "Key mappings
 "1. cscope
