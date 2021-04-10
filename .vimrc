@@ -23,17 +23,16 @@ call plug#end()
 set encoding=utf-8
 set fileencodings=utf-8,cp932
 set fileformats=unix
-set incsearch 			"Iincremental search
-set hlsearch 			"Highlighten search result
-set laststatus=2 		"Always enable status line
+set incsearch 			    "Iincremental search
+set laststatus=2 		    "Always enable status line
 set nobackup
 set noswapfile
 set autoread
 set smartindent
 set wildmode=list:longest 	"command-line completion
 set clipboard+=unnamed		"Using system clipboard
-set background=dark		"Setting dard mode for gruvbox color theme
-set nohlsearch          "No highlight for search
+set background=dark		    "Setting dard mode for gruvbox color theme
+set nohlsearch              "No highlight search"
 
 set tabstop=4
 set autoindent

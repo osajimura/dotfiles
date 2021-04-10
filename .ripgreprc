@@ -8,3 +8,5 @@
 --glob=!**/testutil/**
 --glob=!**/test_fw/**
 --glob=!qa/*
+--glob=!**/tags
+--glob=!**/cscope.files

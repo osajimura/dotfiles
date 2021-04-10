@@ -39,7 +39,7 @@ export BAT_THEME="Nord"
 export RIPGREP_CONFIG_PATH=~/.ripgreprc
 alias ls='ls -aFG'
 alias nssh='ssh -lnutanix'
-alias vim='PYTHONPATH=~/ws/main/.python vim'
+# alias vim='PYTHONPATH=~/ws/main/.python vim'
 
 # Disabling Ctrl + S and Ctrl + Q. See stty -a for defails.
 stty stop undef
@@ -50,7 +50,7 @@ gb() {
     local branches branch
     branches=$(git branch) &&
     branch=$(echo "$branches" | fzf-tmux +m) &&
-    git checkout $(echo "$branch" | awk '{print $1}')
+    git checkout -f $(echo "$branch" | awk '{print $1}')
 }
 
 # gbr - checkout git branch from remote branch
