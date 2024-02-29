@@ -18,6 +18,9 @@ Plug 'mattn/vim-lsp-settings'
 Plug 'AndrewRadev/quickpeek.vim'
 Plug 'majutsushi/tagbar'
 
+Plug 'ryanoasis/vim-devicons'
+Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+
 call plug#end()
 
 set encoding=utf-8
