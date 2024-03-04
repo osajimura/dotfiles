@@ -1,5 +1,5 @@
 export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/shims:~/local/bin:/usr/local/bin:/sbin:/bin:/usr/bin:/usr/sbin"
+export PATH="$PYENV_ROOT/shims:~/local/bin:/usr/local/bin:/opt/homebrew/bin:/sbin:/bin:/usr/bin:/usr/sbin"
 
 if command -v pyenv 1>/dev/null 2>&1; then
   eval "$(pyenv init -)"
