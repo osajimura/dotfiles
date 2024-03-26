@@ -52,14 +52,15 @@ syntax on
 colorscheme gruvbox
 
 "cscope settings
+"set csprg=/usr/local/bin/cscope	"cscope binary path
 set csre			"basename of cscope.out location will be used as the prefix to construct an absolute path.
-set csprg=/usr/local/bin/cscope	"cscope binary path
 
 "NERDTree key mappings
 nnoremap <C-l> :NERDTreeToggle<CR>
 let NERDTreeWinSize = 60
 let NERDTreeNodeDelimiter = "\t"
 let NERDTreeShowHidden = 1
+let g:NERDTreeLimitedSyntax = 1 "Added to resolve slow NERDTree issue
 
 "Airline Theme
 let g:airline#extensions#tabline#enabled = 1
