@@ -61,6 +61,16 @@ gbr() {
     git checkout -b $(echo "$branch" | awk '{print $1}' | cut -d "/" -f2) $(echo "$branch" | awk '{print $1}')
 }
 
+# gt - checkout git branch from tag
+gt() {
+    local tags tag
+    tags=$(git tag) &&
+    tag=$(echo "$tags" | fzf +m) &&
+    git checkout -b $(echo "$tag") $(echo "$tag")
+}
+
+#    git checkout -b $(echo "$tag")
+
 # key binding for gb
 bind '"\C-g": "gb \n"'
 
