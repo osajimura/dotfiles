@@ -21,6 +21,8 @@ Plug 'majutsushi/tagbar'
 Plug 'ryanoasis/vim-devicons'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 
+Plug 'r08ertliu/cscope-fzf'
+
 call plug#end()
 
 set encoding=utf-8
@@ -77,7 +79,7 @@ endif
 "Use quickfix window (size 30) for any grep commands output
 augroup AutoQuickfix
     autocmd!
-    autocmd QuickFixCmdPost *grep* cwindow 30
+    autocmd QuickFixCmdPost * cwindow 30
 augroup END
 
 " fzf default command
@@ -99,7 +101,7 @@ highlight lspReference cterm = underline ctermfg = 109 ctermbg = 239
 
 "To turn preview popup on automatically (quickpeek.vim)
 let g:quickpeek_auto = v:true
-let g:quickpeek_popup_options = {'title': ' Preview '}
+let g:quickpeek_popup_options = {'title': ' Preview ', 'maxheight': '40'}
 let g:quickpeek_window_settings = ['cursorline', 'number']
 
 "Tagbar window size
@@ -107,14 +109,17 @@ let g:tagbar_width = 130
 
 "Key mappings
 "1. cscope
-nnoremap <C-s> :vert scs find s <C-R>=expand("<cword>")<CR><CR>
-nnoremap <C-c> :vert scs find c <C-R>=expand("<cword>")<CR><CR>
+"nnoremap <C-s> :vert scs find s <C-R>=expand("<cword>")<CR><CR>
+"nnoremap <C-c> :vert scs find c <C-R>=expand("<cword>")<CR><CR>
 "nnoremap <C-t> :vert scs find t <C-R>=expand("<cword>")<CR><CR>
 "nnoremap <C-g> :vert scs find g <C-R>=expand("<cword>")<CR><CR>
-nnoremap <C-s>s :cs find s <C-R>=expand("<cword>")<CR><CR>
-nnoremap <C-g>g :cs find g <C-R>=expand("<cword>")<CR><CR>
-nnoremap <C-c>c :cs find c <C-R>=expand("<cword>")<CR><CR>
-nnoremap <C-t>t :cs find t <C-R>=expand("<cword>")<CR><CR>
+"nnoremap <C-s>s :cs find s <C-R>=expand("<cword>")<CR><CR>
+"nnoremap <C-g>g :cs find g <C-R>=expand("<cword>")<CR><CR>
+"nnoremap <C-c>c :cs find c <C-R>=expand("<cword>")<CR><CR>
+"nnoremap <C-t>t :cs find t <C-R>=expand("<cword>")<CR><CR>
+nnoremap <C-s>s :CsFZFSymbol <C-R>=expand("<cword>")<CR><CR>
+nnoremap <C-g>g :CsFZFGlobal <C-R>=expand("<cword>")<CR><CR>
+nnoremap <C-c>c :CsFZFCaller <C-R>=expand("<cword>")<CR><CR>
 
 "2. buffer control
 nnoremap <C-p> :bp<CR>
