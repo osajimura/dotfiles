@@ -24,11 +24,18 @@ fi
 # Working directory:    94m Light Blue
 # Current Branch:       90m Dark Gray
 
-if [ $NICKNAME ]; then
-    export PS1='\u@\[\e[95m\]$NICKNAME\[\e[0m\]:\[\e[94m\]\w\[\e[0m\]$ '
+if type scutil > /dev/null 2>&1; then
+  NICKNAME="$(scutil --get ComputerName)"
 else
-    export PS1='\[\e[39m\]\u@\h\[\e[00m\]\[\e[00m\]:\[\e[94m\]\w\[\e[00m\]\[\e[1;90m $(__git_ps1 "(%s)")\[\e[00m\]$ '
+  NICKNAME="\h"
 fi
+
+#if [ $NICKNAME ]; then
+#    export PS1='\u@\[\e[95m\]$NICKNAME\[\e[0m\]:\[\e[94m\]\w\[\e[0m\]$ '
+#else
+#    export PS1='\[\e[39m\]\u@\h\[\e[00m\]\[\e[00m\]:\[\e[94m\]\w\[\e[00m\]\[\e[1;90m $(__git_ps1 "(%s)")\[\e[00m\]$ '
+export PS1='\[\e[39m\]\u@\[\e[95m\]$NICKNAME\[\e[00m\]\[\e[00m\]:\[\e[94m\]\w\[\e[00m\]\[\e[1;90m $(__git_ps1 "(%s)")\[\e[00m\]$ '
+#fi
 
 export LANG=ja_JP.UTF-8
 export LC_MESSAGES="C"
