@@ -27,7 +27,7 @@ fi
 if type scutil > /dev/null 2>&1; then
   NICKNAME="$(scutil --get ComputerName)"
 else
-  NICKNAME="\h"
+  NICKNAME=$(hostname)
 fi
 
 #if [ $NICKNAME ]; then
